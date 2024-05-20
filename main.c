@@ -1,65 +1,60 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "cdataframe.h"
+#include "list.h"
+#include "column.h"
+
 
 
 int main() {
 
 
-    CDataframe *df = create_dataframe();
-    add_column(df, create_column("Colonne 1"));
-    add_column(df, create_column("Colonne 2"));
-    add_column(df, create_column("Colonne 3"));
+    // TEST CRÉATION DU DATAFRAME
+    ENUM_TYPE cdftype [] = {STRING,UINT, INT, CHAR, FLOAT, DOUBLE};
+    CDATAFRAME *cdf = create_dataframe(cdftype, 2);
 
-    // Ajout de quelques lignes
+    // test des fonctions
+    user_dataframe(cdf);
 
-    int ligne1[] = {20, 20, 87};
-    int ligne2[] = {2323, 52323, 87};
-    int ligne3[] = {9990, 232323, 0};
-    add_row(df, ligne1);
-    add_row(df, ligne2);
-    add_row(df, ligne3);
 
-    // Affichage initial du dataframe
 
-    print_dataframe(df);
-    printf("\n");
+    // fonction qui ne marche pas
 
-    // Test de la modification d'une valeur
+    //int val2 = 10;
+    //replace_value(cdf,0,0,&val2);
 
-    change_value_at(df, 1, 0, 999);
-    print_dataframe(df);
-    printf("\n");
+    // fonction pour modifier le nom ne marche pas
+    //    char nom[10] = "hiarina";
+    //    char *p = nom;
+    //
+    //    modifier_nom_col(cdf,p,1);
 
-    // Test de la fonction pour supprimer une ligne
+    print_dataframe(cdf); // premier print sans la colonne rajoutée
 
-    printf("Suppression de la ligne 2:\n");
-    delete_row(df, 1);
-    print_dataframe(df);
-    printf("\n");
 
-    // Test de la fonction pour renommer une colonne
+    ajouter_col_user(cdf);
+    print_dataframe(cdf); // deuxieme print avec la colonne ajoutée
 
-    rename_column(df, 2, "Nouvelle Colonne test");
-    print_dataframe(df);
-    printf("\n");
+    ajouter_lig_user(cdf);
+    print_dataframe(cdf); // troisieme print avec la ligne ajoutée
 
-    // Test de la fonction pour rechercher une valeur
+    print_col_nom(cdf);
 
-    printf("test de la recherche de la valeur 99 que nous avons ajouter précedement\n");
-    if (contains_value(df, 999)) {
-        printf("La valeur 999 est bien présente.\n");
-    } else {
-        printf("La valeur 999 n'est pas présente.\n");
-    }
-    printf("\n");
+    // fonction limite
+    limite_print_col(cdf, 2);
+    limite_print_ligne(cdf, 1);
 
-    // libération de l'espace
 
-    for (int i = 0; i < df->nombre_colonnes; i++) {
-        delete_column(&df->colonnes[i]);
-    }
-    free(df);
+
+
+
+    load_csv();
+
+
+    deletete_dataframe(cdf);
+
+    // print_dataframe(cdf);
+
+
+
 
     return 0;
 }
