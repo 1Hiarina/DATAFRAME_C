@@ -1,7 +1,20 @@
-Ce projet en c a pour but de créer un dataframe. Nous avons fait le choix dans un premier temps de faire le dataframe seulement avec des entiers par soucis de temps. Mais nous prévoyons de faire en suite plusieurs types
-Toutes les fonctions sont commentées, et prêtes à être utilisé. Le fichier main test ces fonctions.
+// ***** PROJET C_DATAFRAME ***** //
 
+Année : **L1**
+Groupe : **D**
 
+Binôme: 
+  Nicolas Lefrancq
+  Hiarina Rakotoarivelo
 
+// Description du projet dataframe: //
 
-Lien vers le GITHUB: https://github.com/1Hiarina/DATAFRAME_C
+Le projet DataFrame a été créé afin de manipuler et créer des DataFrames. Le choix du groupe s'est porté sur tous les types de données. 
+Nous avons développé le DataFrame pour qu'il puisse accepter tous les types que l'utilisateur souhaite. 
+Initialement, nous avons développé uniquement la gestion des entiers, puis nous l'avons étendue pour inclure les flottants, les chaînes de caractères, etc. 
+Pour optimiser la manipulation et l'allocation de mémoire, nous avons finalement choisi d'utiliser des listes chaînées. 
+Le dossier ZIP contient les fichiers suivants : main.c, cdataframe (.c/.h), column (.c/.h) et list (.c/.h).
+Certaines fonctions ne sont pas opérationnelles et n'ont pas été finalisées en raison de contraintes de temps. 
+De plus, nous avons rencontré des difficultés lors de la création des fichiers CSV.
+
+Lien vers le GITHUB: [https://github.com/1Hiarina/DATAFRAME_C](https://github.com/1Hiarina/DATAFRAME_C)
